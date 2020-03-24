@@ -15,7 +15,7 @@ public class Caixa {
     float comprimento;
     float volume;
     
-    float calcularVolume(float altura , float largura, float comprimento){
+    float calcularVolume(){
         volume = altura * largura * comprimento;
         return volume;
     }
