@@ -29,5 +29,5 @@ somaD(1000)
 const tempoFimS = Date.now() - tempoInicioS
 console.log("Resultado da soma segunda vez: " + somaD(5000))
 console.log("Duracao segunda vez: " + tempoFimS + " ms")
-console.log("A segunda execucao tem menor duracao pois o valor já está resultante já está armazenado nos resultados.")
+console.log("A segunda execucao tem menor duracao pois o valor resultante já está armazenado nos resultados.")
 
