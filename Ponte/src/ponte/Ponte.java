@@ -24,6 +24,7 @@ public class Ponte extends Thread {
         } catch (InterruptedException ex) {}
     }
     public synchronized void passou(){
+        notifyAll();
         this.ponte = false;
     }
 }
