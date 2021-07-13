@@ -4,36 +4,26 @@
  * and open the template in the editor.
  */
 package ponte;
-
 /**
  *
  * @author kaiof
  */
-public class Ponte {
-    public static Boolean ponte = false;
+public class Ponte extends Thread {
+    Boolean ponte = false;
 
-    public static Boolean getPonte() {
-        return ponte;
+    public synchronized void atravessar(String nome){
+        try {
+        while (ponte == true){
+            wait();
+        }
+        System.out.println(nome+" está passando");
+        System.out.println("1 2 3 4 5 6 7 8 9 10");
+        Thread.sleep(1000);
+        this.ponte = true;
+        passou();  
+        } catch (InterruptedException ex) {}
     }
-    public static void setPonte(Boolean ponte) {
-        Ponte.ponte = ponte;
+    public synchronized void passou(){
+        this.ponte = false;
     }
-    
-    public static void main(String[] args) {
-        Carro comum = new Carro();
-        Carro ambulancia = new Carro();
-        Carro policia = new Carro();
-   
-        comum.setPriority(1);
-        ambulancia.setPriority(10);
-        policia.setPriority(5);
-        
-        comum.setName("Comum");
-        ambulancia.setName("Ambulancia");
-        policia.setName("Policia");
-        
-        comum.start();
-        ambulancia.start();
-        policia.start();
-    } 
 }
